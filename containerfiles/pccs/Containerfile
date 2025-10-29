@@ -16,6 +16,7 @@ RUN mkdir -p ../../prebuilt/openssl/inc \
 WORKDIR ../../QuoteGeneration/pccs
 COPY --chown=1001:users package-lock.json .
 COPY --chown=1001:users package.json .
+RUN echo "sqlite3_local_prebuilds=/cachi2/output/deps/generic/" | tee -a /opt/app-root/src/.npmrc
 RUN npm config set engine-strict true \
     && npm install
 
